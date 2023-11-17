@@ -65,7 +65,10 @@ def p_start(p):
     print("VALID")
 
 def p_arrayd(p):
-    'arrayd : VAR ID EQUALTO ARRAY BRACL content BRACR'
+    '''arrayd : VAR ID EQUALTO ARRAY BRACL content BRACR
+              | VAR ID EQUALTO ARRAY BRACL content1 BRACR
+    '''
+
 
 def p_type(p):
     '''type : STRING
@@ -84,9 +87,12 @@ def p_content(p):
                | QUOTES ID QUOTES COMMA content
                | QUOTES NUM QUOTES
                | QUOTES NUM QUOTES COMMA content
-               | NUM
-               | NUM COMMA content
                |
+    '''
+def p_content1(p):
+    '''content1 : NUM
+                | NUM COMMA content
+                |
     '''
 
 def p_error(p):
