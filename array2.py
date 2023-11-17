@@ -91,7 +91,7 @@ def p_content(p):
     '''
 def p_content1(p):
     '''content1 : NUM
-                | NUM COMMA content
+                | NUM COMMA content1
                 |
     '''
 
