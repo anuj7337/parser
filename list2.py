@@ -63,6 +63,8 @@ def p_start(p):
 def p_listd(p):
     '''listd : VAL ID EQUALTO LIST BRACL content BRACR
              | VAL ID COLON LIST SQBRACL type SQBRACR EQUALTO LIST BRACL content BRACR
+             | VAL ID EQUALTO LIST BRACL content1 BRACR
+             | VAL ID COLON LIST SQBRACL type SQBRACR EQUALTO LIST BRACL content1 BRACR
     '''
 
 def p_type(p):
@@ -82,9 +84,12 @@ def p_content(p):
                | QUOTES ID QUOTES COMMA content
                | QUOTES NUM QUOTES
                | QUOTES NUM QUOTES COMMA content
-               | NUM
-               | NUM COMMA content
                |
+    '''
+def p_content1(p):
+    '''content1 : NUM
+                | NUM COMMA content
+                |
     '''
 
 def p_error(p):
